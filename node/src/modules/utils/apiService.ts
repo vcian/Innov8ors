@@ -1,3 +1,4 @@
+import { EnvironmentConfig } from "../../config/EnvironmentConfig";
 import { HttpUtil } from "./HttpUtil";
 const { Configuration, OpenAIApi } = require("openai");
 
@@ -51,7 +52,7 @@ export class apiService {
   ): Promise<string> {
     
     const configuration = new Configuration({
-        apiKey: "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",
+        apiKey:EnvironmentConfig.getInstance().gpt_key,
     });
 
     const openai = new OpenAIApi(configuration);
