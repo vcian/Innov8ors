@@ -10,6 +10,7 @@ import { CpButtonComponent } from '@app/shared/cp-libs/cp-button/cp-button.compo
 import { CpTelInputComponent } from '@app/shared/cp-libs/cp-tel-input/cp-tel-input.component';
 import {
   COUNTRY_LIST,
+  DAY_LIST,
   DURATION_TYPE_LIST, DurationTypeEnum, KNOWLEDGE_LEVEL_LIST, KnowledgeLevelEnum,
   LEARNING_PACE_LIST,
   LEARNING_STYLE_LIST,
@@ -46,8 +47,8 @@ export class ScheduleCreateComponent implements OnInit {
   readonly timePreferenceList = TIME_PREFERENCE_LIST;
   readonly knowledgeLevelList = KNOWLEDGE_LEVEL_LIST;
   readonly learningStyleList = LEARNING_STYLE_LIST;
-  readonly weekDays = LEARNING_STYLE_LIST;
   readonly learningPaceList = LEARNING_PACE_LIST;
+  readonly dayPreferenceList = DAY_LIST;
   readonly regexType = RegexType;
   private destroyRef = inject(DestroyRef);
 
@@ -74,10 +75,10 @@ export class ScheduleCreateComponent implements OnInit {
       duration: new FormControl(1, [Validators.required, Validators.min(1), Validators.max(100)]),
       timeAvailability: new FormControl(1, [Validators.required, Validators.min(1), Validators.max(100)]),
       timePreference: new FormControl([], [Validators.required]),
+      dayPreference: new FormControl([], [Validators.required]),
       currentKnowledgeLevel: new FormControl(KnowledgeLevelEnum.beginner, Validators.required),
       desiredKnowledgeLevel: new FormControl(KnowledgeLevelEnum.intermediate, Validators.required),
       learningStyle: new FormControl([], Validators.required),
-      weekDays: new FormControl([],Validators.required),
       learningPace: new FormControl(''),
     });
 
@@ -90,14 +91,29 @@ export class ScheduleCreateComponent implements OnInit {
   onSubmit(): boolean | void {
     this.createScheduleForm.markAllAsTouched();
     if (this.createScheduleForm.invalid) {
-      return true;
+      return false;
     }
     this.isSubmitted = true;
     this.createNewSchedule();
   }
 
   createNewSchedule(): void {
-    this.scheduleService.createSchedule(this.createScheduleForm.value)
+    const formValue = this.createScheduleForm.value;
+    const payload = {
+      form: {
+        "topic": formValue.topic,
+        "durationType": formValue.durationType,
+        "duration": formValue.duration,
+        "timeAvailability": formValue.timeAvailability,
+        "timePreference": formValue.timePreference,
+        "currentKnowledgeLevel": formValue.currentKnowledgeLevel,
+        "desiredKnowledgeLevel": formValue.desiredKnowledgeLevel,
+        "learningStyle": formValue.learningStyle,
+        "learningPace": formValue.learningPace,
+        "dayAvailability": formValue.dayPreference
+      }
+    };
+    this.scheduleService.createSchedule(payload)
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe({
         next: (response) => {

@@ -139,7 +139,8 @@
       "currentKnowledgeLevel": "Current Knowledge Level",
       "desiredKnowledgeLevel": "Desired Knowledge Level",
       "learningStyle": "Learning Style",
-      "learningPace": "Learning Pace"
+      "learningPace": "Learning Pace",
+      "dayPreference": "Day Preference"
     }
   },
   "days": {

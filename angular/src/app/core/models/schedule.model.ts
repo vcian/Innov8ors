@@ -28,11 +28,11 @@ export interface CreateScheduleForm {
   duration: FormControl<number>;
   timeAvailability: FormControl<number>; // hours based
   timePreference: FormControl<Array<string>>; //(morning/noon/night)
+  dayPreference: FormControl<Array<string>>; //(days)
   currentKnowledgeLevel: FormControl<string>; // beginner/intermediate/expert
   desiredKnowledgeLevel: FormControl<string>;// beginner/intermediate/expert
   learningStyle: FormControl<Array<string>>; // (e.g., visual, auditory, hands-on). - multi selection dropdown
-  learningPace?: FormControl<string>;
-  weekDays: FormControl<Array<string>> // ( more intensive or gradual approach)
+  learningPace?: FormControl<string>;// ( more intensive or gradual approach)
 }
 
 export interface PartnerAddress {
