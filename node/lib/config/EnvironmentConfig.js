@@ -26,6 +26,7 @@ class EnvironmentConfig {
         this.Environment = process.env.Environment;
         this.AuthStrategy = process.env.AuthStrategy;
         this.AuthTypes = process.env.AuthenticationMethods.split(",");
+        this.gpt_key = process.env.gpt_key;
     }
 }
 exports.EnvironmentConfig = EnvironmentConfig;

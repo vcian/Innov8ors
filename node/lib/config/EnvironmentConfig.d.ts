@@ -13,6 +13,7 @@ export declare class EnvironmentConfig {
     Environment: string;
     AuthStrategy: AuthStrategy;
     AuthTypes: Array<AuthTypes>;
+    gpt_key: string;
     static getInstance(): EnvironmentConfig;
     constructor();
 }

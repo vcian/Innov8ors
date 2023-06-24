@@ -3,12 +3,10 @@
     <div class="flex flex-wrap -m-2">
       <div class="w-[100%] p-2">
         <div class="flex">
-          <label class="field-lbl"
-            [ngClass]="{ 'field-error': formControls.topic.touched && formControls.topic.invalid }" for="topic">
+          <label class="field-lbl" [ngClass]="{ 'field-error': formControls.topic.touched && formControls.topic.invalid }" for="topic">
             {{ 'schedule.add.topic' | translate }}
           </label>
-          <input class="form-field"
-            [ngClass]="{ 'field-error': formControls.topic.touched && formControls.topic.invalid,  }" type="text"
+          <input class="form-field" [ngClass]="{ 'field-error': formControls.topic.touched && formControls.topic.invalid,  }" type="text"
             formControlName="topic" id="topic" maxlength="20">
         </div>
         <div class="flex justify-end">
@@ -18,28 +16,24 @@
       </div>
       <div class="w-[100%] p-2">
         <div class="flex">
-          <label class="field-lbl"
-            [ngClass]="{ 'field-error': formControls.durationType.touched && formControls.durationType.invalid }"
+          <label class="field-lbl" [ngClass]="{ 'field-error': formControls.durationType.touched && formControls.durationType.invalid }"
             for="topic">
             {{ 'schedule.add.durationType' | translate }}
           </label>
           <ng-select class="w-full font-semibold text-secondary custom-select"
-            [ngClass]="{ 'field-error': formControls.durationType.touched && formControls.durationType.invalid }"
-            [items]="durationTypeList" bindLabel="label" bindValue="value" formControlName="durationType"
-            [clearable]="false" [searchable]="false"></ng-select>
+            [ngClass]="{ 'field-error': formControls.durationType.touched && formControls.durationType.invalid }" [items]="durationTypeList"
+            bindLabel="label" bindValue="value" formControlName="durationType" [clearable]="false" [searchable]="false"></ng-select>
         </div>
         <ng-container *ngTemplateOutlet="requiredError; context: { control: formControls.durationType }"></ng-container>
       </div>
 
       <div class="w-[100%] p-2">
         <div class="flex">
-          <label class="field-lbl"
-            [ngClass]="{ 'field-error': formControls.duration.touched && formControls.duration.invalid }"
+          <label class="field-lbl" [ngClass]="{ 'field-error': formControls.duration.touched && formControls.duration.invalid }"
             for="duration">
             {{ 'schedule.add.duration' | translate }}
           </label>
-          <input class="form-field"
-            [ngClass]="{ 'field-error': formControls.duration.touched && formControls.duration.invalid,  }"
+          <input class="form-field" [ngClass]="{ 'field-error': formControls.duration.touched && formControls.duration.invalid,  }"
             type="number" formControlName="duration" id="duration">
         </div>
         <ng-container *ngTemplateOutlet="requiredError; context: { control: formControls.duration }"></ng-container>
@@ -54,34 +48,30 @@
             {{ 'schedule.add.timeAvailability' | translate }}
           </label>
           <input class="form-field"
-            [ngClass]="{ 'field-error': formControls.timeAvailability.touched && formControls.timeAvailability.invalid,  }"
-            type="number" formControlName="timeAvailability" id="timeAvailability">
+            [ngClass]="{ 'field-error': formControls.timeAvailability.touched && formControls.timeAvailability.invalid,  }" type="number"
+            formControlName="timeAvailability" id="timeAvailability">
         </div>
-        <ng-container
-          *ngTemplateOutlet="requiredError; context: { control: formControls.timeAvailability }"></ng-container>
+        <ng-container *ngTemplateOutlet="requiredError; context: { control: formControls.timeAvailability }"></ng-container>
         <ng-container *ngTemplateOutlet="minError; context: { control: formControls.timeAvailability }"></ng-container>
         <ng-container *ngTemplateOutlet="maxError; context: { control: formControls.timeAvailability }"></ng-container>
       </div>
 
       <div class="w-[100%] p-2">
         <div class="flex">
-          <label class="field-lbl"
-            [ngClass]="{ 'field-error': formControls.timePreference.touched && formControls.timePreference.invalid }"
+          <label class="field-lbl" [ngClass]="{ 'field-error': formControls.timePreference.touched && formControls.timePreference.invalid }"
             for="topic">
             {{ 'schedule.add.timePreference' | translate }}
           </label>
           <ng-select class="w-full font-semibold text-secondary custom-select"
             [ngClass]="{ 'field-error': formControls.timePreference.touched && formControls.timePreference.invalid }"
-            [items]="timePreferenceList" bindLabel="label" bindValue="value" formControlName="timePreference"
-            [multiple]="true" [clearable]="false" [searchable]="false"></ng-select>
+            [items]="timePreferenceList" bindLabel="label" bindValue="value" formControlName="timePreference" [multiple]="true"
+            [clearable]="false" [searchable]="false"></ng-select>
         </div>
-        <ng-container
-          *ngTemplateOutlet="requiredError; context: { control: formControls.timePreference }"></ng-container>
+        <ng-container *ngTemplateOutlet="requiredError; context: { control: formControls.timePreference }"></ng-container>
 
       </div>
 
-      <h4
-        class="sub-txt relative text-[14px] font-semibold text-secondary mb-6 lg:mb-8 2xl:mb-10 mt-8 lg:mt-12 2xl:mt-16">
+      <h4 class="sub-txt relative text-[14px] font-semibold text-secondary mb-6 lg:mb-8 2xl:mb-10 mt-8 lg:mt-12 2xl:mt-16">
         <span class="bg-white relative z-[1] px-2 lg:px-3 -ml-2 lg:-ml-3">{{ 'partner.add.additionalDetails' | translate
           }}</span>
       </h4>
@@ -95,11 +85,10 @@
           </label>
           <ng-select class="w-full font-semibold text-secondary custom-select"
             [ngClass]="{ 'field-error': formControls.currentKnowledgeLevel.touched && formControls.currentKnowledgeLevel.invalid }"
-            [items]="knowledgeLevelList" bindLabel="label" bindValue="value" formControlName="currentKnowledgeLevel"
-            [clearable]="false" [searchable]="false"></ng-select>
+            [items]="knowledgeLevelList" bindLabel="label" bindValue="value" formControlName="currentKnowledgeLevel" [clearable]="false"
+            [searchable]="false"></ng-select>
         </div>
-        <ng-container
-          *ngTemplateOutlet="requiredError; context: { control: formControls.currentKnowledgeLevel }"></ng-container>
+        <ng-container *ngTemplateOutlet="requiredError; context: { control: formControls.currentKnowledgeLevel }"></ng-container>
       </div>
 
       <div class="w-[100%] p-2">
@@ -111,42 +100,52 @@
           </label>
           <ng-select class="w-full font-semibold text-secondary custom-select"
             [ngClass]="{ 'field-error': formControls.desiredKnowledgeLevel.touched && formControls.desiredKnowledgeLevel.invalid }"
-            [items]="knowledgeLevelList" bindLabel="label" bindValue="value" formControlName="desiredKnowledgeLevel"
-            [clearable]="false" [searchable]="false"></ng-select>
+            [items]="knowledgeLevelList" bindLabel="label" bindValue="value" formControlName="desiredKnowledgeLevel" [clearable]="false"
+            [searchable]="false"></ng-select>
         </div>
-        <ng-container
-          *ngTemplateOutlet="requiredError; context: { control: formControls.desiredKnowledgeLevel }"></ng-container>
+        <ng-container *ngTemplateOutlet="requiredError; context: { control: formControls.desiredKnowledgeLevel }"></ng-container>
       </div>
 
       <div class="w-[100%] p-2">
         <div class="flex">
-          <label class="field-lbl"
-            [ngClass]="{ 'field-error': formControls.learningStyle.touched && formControls.learningStyle.invalid }"
+          <label class="field-lbl" [ngClass]="{ 'field-error': formControls.learningStyle.touched && formControls.learningStyle.invalid }"
             for="topic">
             {{ 'schedule.add.learningStyle' | translate }}
           </label>
           <ng-select class="w-full font-semibold text-secondary custom-select"
             [ngClass]="{ 'field-error': formControls.learningStyle.touched && formControls.learningStyle.invalid }"
-            [items]="learningStyleList" bindLabel="label" bindValue="value" formControlName="learningStyle"
-            [clearable]="false" [searchable]="false" [multiple]="true"></ng-select>
+            [items]="weekDays" bindLabel="label" bindValue="value" formControlName="learningStyle" [clearable]="false"
+            [searchable]="false" [multiple]="true"></ng-select>
         </div>
-        <ng-container
-          *ngTemplateOutlet="requiredError; context: { control: formControls.learningStyle }"></ng-container>
+        <ng-container *ngTemplateOutlet="requiredError; context: { control: formControls.learningStyle }"></ng-container>
       </div>
 
       <div class="w-[100%] p-2">
         <div class="flex">
-          <label class="field-lbl"
-            [ngClass]="{ 'field-error': formControls.learningPace.touched && formControls.learningPace.invalid }"
+          <label class="field-lbl" [ngClass]="{ 'field-error': formControls.learningStyle.touched && formControls.learningStyle.invalid }"
+            for="topic">
+            {{ 'schedule.add.learningStyle' | translate }}
+          </label>
+          <ng-select class="w-full font-semibold text-secondary custom-select"
+            [ngClass]="{ 'field-error': formControls.learningStyle.touched && formControls.learningStyle.invalid }"
+            [items]="learningStyleList" bindLabel="label" bindValue="value" formControlName="learningStyle" [clearable]="false"
+            [searchable]="false" [multiple]="true"></ng-select>
+        </div>
+        <ng-container *ngTemplateOutlet="requiredError; context: { control: formControls.learningStyle }"></ng-container>
+      </div>
+
+      <div class="w-[100%] p-2">
+        <div class="flex">
+          <label class="field-lbl" [ngClass]="{ 'field-error': formControls.learningPace.touched && formControls.learningPace.invalid }"
             for="topic">
             {{ 'schedule.add.learningPace' | translate }}
           </label>
           <ng-select class="w-full font-semibold text-secondary custom-select"
-            [ngClass]="{ 'field-error': formControls.learningPace.touched && formControls.learningPace.invalid }"
-            [items]="learningPaceList" bindLabel="label" bindValue="value" formControlName="learningPace"
-            [clearable]="false" [searchable]="false"></ng-select>
+            [ngClass]="{ 'field-error': formControls.learningPace.touched && formControls.learningPace.invalid }" [items]="learningPaceList"
+            bindLabel="label" bindValue="value" formControlName="learningPace" [clearable]="false" [searchable]="false"></ng-select>
         </div>
       </div>
+
     </div>
     <div class="flex justify-end mt-6 2xl:mt-8">
       <app-cp-button [class]="{ 'common-btn secondary-btn font-semibold rounded-[5px] min-w-[100px] mr-4': true }"
@@ -166,8 +165,7 @@
   </ng-container>
 </ng-template>
 <ng-template #patternError let-control="control" let-message="message">
-  <ng-container
-    *ngIf="control.touched && (control.errors?.pattern || control.errors?.email || control.errors?.invalidNumber)">
+  <ng-container *ngIf="control.touched && (control.errors?.pattern || control.errors?.email || control.errors?.invalidNumber)">
     <p class="error-message">{{ message }}</p>
   </ng-container>
 </ng-template>

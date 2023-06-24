@@ -3,8 +3,9 @@ import { Component, DestroyRef, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LOCAL_STORAGE_CONSTANT } from '@app/core/constants/localstorage.constant';
 import { CpButtonComponent } from '@app/shared/cp-libs/cp-button/cp-button.component';
-import { APP_CONSTANTS } from '@constants/app.constants';
+import { APP_CONSTANTS, MessageType } from '@constants/app.constants';
 import { ILogin, LoginResponse } from '@models/auth.model';
 import { TranslateModule } from '@ngx-translate/core';
 import { AlertToastrService } from '@services/alert-toastr.service';
@@ -56,15 +57,7 @@ export class LoginComponent {
         next: (res: LoginResponse) => {
           if (res) {
             this.isSubmitted = false;
-            this.onOtp = true;
-            console.log(res);
-            // this.localStorageService.set(LOCAL_STORAGE_CONSTANT.LOGIN_TOKEN, res.token);
-            // this.localStorageService.set(LOCAL_STORAGE_CONSTANT.USER_ROLE, res.role);
-            // this.localStorageService.set(LOCAL_STORAGE_CONSTANT.USER_DATA, res);
-            // this.utilityService.changeLanguage(res.locale);
-            // this.router.navigate(['/admin']).then(() => {
-            //   this.toasterService.displaySnackBarWithTranslation('toasterMessage.loggedInSuccessfully', MessageType.success);
-            // });
+            this.onOtp = true
           }
         },
         error: () => {
@@ -74,6 +67,24 @@ export class LoginComponent {
   }
 
   onSubmitOtp(params): void {
-    params.otp = this.loginParam.otp;
+    params.otp = +this.loginParam.otp;
+    this.authenticationService.verifyOtp(params)
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe({
+        next: (res: any) => {
+          if (res) {
+            this.isSubmitted = false;
+            this.onOtp = true;
+            this.localStorageService.set(LOCAL_STORAGE_CONSTANT.LOGIN_TOKEN, res.tokens.access.token);
+            this.localStorageService.set(LOCAL_STORAGE_CONSTANT.USER_DATA, res.user);
+            this.router.navigate(['/dashboard']).then(() => {
+              this.toasterService.displaySnackBarWithTranslation('toasterMessage.loggedInSuccessfully', MessageType.success);
+            });
+          }
+        },
+        error: () => {
+          this.isSubmitted = false;
+        }
+      });
   }
 }

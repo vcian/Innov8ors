@@ -10,6 +10,6 @@ export const LoginGuard: CanMatchFn = () => {
   if (!token) {
     return true;
   }
-  router.navigate(['/']);
+  router.navigate(['/dashboard']);
   return false;
 };

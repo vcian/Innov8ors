@@ -1,24 +1,21 @@
-.arrow-icon {
-    @apply flex items-center justify-center w-[10px] h-[10px] text-[30px]
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
 }
-.custom-table {
-    tr {
-        @apply h-[48px] lg:h-[52px] 2xl:h-[60px];
-    }
-    th,
-    td {
-        @apply font-base text-[14px] xl:text-[15px] 2xl:text-[16px] leading-[normal] border-grey-50 overflow-visible py-2;
-        &:first-child {
-            @apply pl-0;
-        }
-        &:last-child {
-            @apply pr-1;
-        }
-    }
-    th {
-        @apply font-bold text-black whitespace-nowrap;
-    }
-    td {
-        @apply font-semibold text-grey-500;
-    }
+
+.quote-card {
+  width: 500px;
+  text-align: center;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.quote-card {
+  box-shadow: 1px 0px 1px 2px rgba(0, 0, 0, 0.2),
+    0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
 }

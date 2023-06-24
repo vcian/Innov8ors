@@ -1,12 +1,9 @@
-import { Component, DestroyRef, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { SidebarComponent } from '@layouts/sidebar/sidebar.component';
 import { BreadcrumbComponent } from '@layouts/breadcrumb/breadcrumb.component';
-import { CpEventsService } from '@services/cp-events.service';
-import { BreadCrumb, BreadcrumbEventModel } from '@models/breadcrumb.model';
 import { HeaderComponent } from '@layouts/header/header.component';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { SidebarComponent } from '@layouts/sidebar/sidebar.component';
 
 @Component({
   selector: 'app-pages',
@@ -17,30 +14,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 })
 export class PagesComponent {
 
-  breadcrumbs!: BreadCrumb[];
-  showLastItemCustomLabel!: boolean;
-  lastItemCustomLabel!: string;
-  menuOpen = false;
-
-  private destroyRef = inject(DestroyRef);
-
-  constructor(
-    private cpEventsService: CpEventsService
-  ) { }
-
-  ngOnInit(): void {
-    this.cpEventsService.cpHeaderDataChanged
-      .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe((result: BreadcrumbEventModel) => {
-        setTimeout(() => {
-          this.breadcrumbs = result.breadcrumbs;
-          this.showLastItemCustomLabel = result.showLastItemCustomLabel as boolean;
-          this.lastItemCustomLabel = result.lastItemCustomLabel as string;
-        }, 100);
-      })
+  constructor() {
   }
 
-  toggleMenu(): void {
-    this.menuOpen = !this.menuOpen;
-  }
 }

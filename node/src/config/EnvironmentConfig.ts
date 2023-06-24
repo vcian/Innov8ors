@@ -1,7 +1,7 @@
 import { config } from "dotenv";
+import { AuthStrategy, AuthTypes } from "../modules/utils/enum";
 
 import path = require("path");
-import { AuthStrategy, AuthTypes } from "../modules/utils/enum";
 
 export class EnvironmentConfig {
   public static instance: EnvironmentConfig;
@@ -18,6 +18,7 @@ export class EnvironmentConfig {
   public Environment:string
   public AuthStrategy: AuthStrategy
   public AuthTypes:Array<AuthTypes>
+  public gpt_key : string
 
   public static getInstance() {
     if (!EnvironmentConfig.instance) {
@@ -45,6 +46,7 @@ export class EnvironmentConfig {
     this.Environment = process.env.Environment
     this.AuthStrategy = <AuthStrategy>process.env.AuthStrategy
     this.AuthTypes = <AuthTypes[]>process.env.AuthenticationMethods.split(",")
+    this.gpt_key = process.env.gpt_key
 
   }
 }
