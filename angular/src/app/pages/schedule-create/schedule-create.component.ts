@@ -4,22 +4,22 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CreateScheduleForm } from '@app/core/models/schedule.model';
+import { ScheduleService } from '@app/core/services/schedule.service';
 import { CpButtonComponent } from '@app/shared/cp-libs/cp-button/cp-button.component';
 import { CpTelInputComponent } from '@app/shared/cp-libs/cp-tel-input/cp-tel-input.component';
 import {
-  COUNTRY_LIST, CURRENCY_LIST, DURATION_TYPE_LIST, DurationTypeEnum, KNOWLEDGE_LEVEL_LIST, KnowledgeLevelEnum, LANGUAGE_LIST,
+  COUNTRY_LIST,
+  DURATION_TYPE_LIST, DurationTypeEnum, KNOWLEDGE_LEVEL_LIST, KnowledgeLevelEnum,
   LEARNING_PACE_LIST,
   LEARNING_STYLE_LIST,
-  MessageType, REGEX_CONSTANTS, RegexType, TIME_PREFERENCE_LIST
+  MessageType,
+  RegexType, TIME_PREFERENCE_LIST
 } from '@constants/app.constants';
 import { AllowNumberOnlyDirective } from '@directives/allow-number-only.directive';
-import { CreateScheduleForm } from '@app/core/models/schedule.model';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { TranslateModule } from '@ngx-translate/core';
 import { AlertToastrService } from '@services/alert-toastr.service';
-import { CpEventsService } from '@services/cp-events.service';
-import { PartnerService } from '@services/partner.service';
-import { ScheduleService } from '@app/core/services/schedule.service';
 
 const imports = [
   CommonModule, MatSlideToggleModule, NgSelectModule,
@@ -46,8 +46,8 @@ export class ScheduleCreateComponent implements OnInit {
   readonly timePreferenceList = TIME_PREFERENCE_LIST;
   readonly knowledgeLevelList = KNOWLEDGE_LEVEL_LIST;
   readonly learningStyleList = LEARNING_STYLE_LIST;
+  readonly weekDays = LEARNING_STYLE_LIST;
   readonly learningPaceList = LEARNING_PACE_LIST;
-
   readonly regexType = RegexType;
   private destroyRef = inject(DestroyRef);
 
@@ -77,6 +77,7 @@ export class ScheduleCreateComponent implements OnInit {
       currentKnowledgeLevel: new FormControl(KnowledgeLevelEnum.beginner, Validators.required),
       desiredKnowledgeLevel: new FormControl(KnowledgeLevelEnum.intermediate, Validators.required),
       learningStyle: new FormControl([], Validators.required),
+      weekDays: new FormControl([],Validators.required),
       learningPace: new FormControl(''),
     });
 

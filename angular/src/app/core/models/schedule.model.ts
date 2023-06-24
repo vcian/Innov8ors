@@ -1,5 +1,5 @@
+import { FormControl } from "@angular/forms";
 import { DurationTypeEnum } from '@constants/app.constants';
-import { FormControl, FormGroup } from "@angular/forms";
 import { ActionToolbar } from "@models/common.model";
 
 export interface CreatePartner {
@@ -31,7 +31,8 @@ export interface CreateScheduleForm {
   currentKnowledgeLevel: FormControl<string>; // beginner/intermediate/expert
   desiredKnowledgeLevel: FormControl<string>;// beginner/intermediate/expert
   learningStyle: FormControl<Array<string>>; // (e.g., visual, auditory, hands-on). - multi selection dropdown
-  learningPace?: FormControl<string>; // ( more intensive or gradual approach)
+  learningPace?: FormControl<string>;
+  weekDays: FormControl<Array<string>> // ( more intensive or gradual approach)
 }
 
 export interface PartnerAddress {

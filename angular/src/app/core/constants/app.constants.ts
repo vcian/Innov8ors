@@ -30,7 +30,7 @@ export const API_ROUTES = {
   dashboardTopPartnersApi: 'dashboard/topPartners',
   exchangeRateApi: 'exchangerates',
   openInvoiceListApi: 'dashboard/openBillList',
-  scheduleApi: 'schedule'
+  scheduleApi: 'user/schedule'
 };
 
 export enum MessageType {
@@ -150,3 +150,5 @@ export const LEARNING_PACE_LIST = [
   { value: LearningPaceEnum.average, label: 'Average Learner' },
   { value: LearningPaceEnum.fast, label: 'Fast Learner' }
 ];
+
+export const WEEKDAYS = ['Mon','Tus','Wed']

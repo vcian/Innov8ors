@@ -1,6 +1,5 @@
 import { Routes } from "@angular/router";
 import { BreadcrumbResolverFn } from "@services/breadcrumb-resolve.service";
-import { PartnerDetailService } from "@services/partner-detail.service";
 
 export const scheduleRoutes: Routes = [
   {
@@ -36,7 +35,7 @@ export const scheduleRoutes: Routes = [
           {
             path: 'list',
             loadComponent: () =>
-              import('@pages/partner-list/partner-list.component').then((m) => m.PartnerListComponent),
+              import('@app/pages/learning-list/learning-list.component').then((m) => m.LearningListComponent),
             resolve: {
               breadcrumbs: BreadcrumbResolverFn,
             }

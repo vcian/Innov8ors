@@ -17,7 +17,7 @@ export class ScheduleService {
   }
 
   createSchedule(params: unknown): Observable<any> {
-    return this.httpClientService.post(API_ROUTES.scheduleApi + '/create', params);
+    return this.httpClientService.post(API_ROUTES.scheduleApi, params);
   }
 
 }
