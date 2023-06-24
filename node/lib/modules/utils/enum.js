@@ -14,7 +14,7 @@ var AuthTypes;
 })(AuthTypes = exports.AuthTypes || (exports.AuthTypes = {}));
 var KnowledgeLevelType;
 (function (KnowledgeLevelType) {
-    KnowledgeLevelType["Begginer"] = "begginer";
+    KnowledgeLevelType["Begginer"] = "beginner";
     KnowledgeLevelType["Intermediate"] = "intermediate";
     KnowledgeLevelType["Expert"] = "expert";
 })(KnowledgeLevelType = exports.KnowledgeLevelType || (exports.KnowledgeLevelType = {}));

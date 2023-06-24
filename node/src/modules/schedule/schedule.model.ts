@@ -34,7 +34,7 @@ const scheduleSchema = new mongoose.Schema<IScheduleDoc, IScheduleModel>(
         type:Number,
         required:true
       },
-      timeAvailablity :{
+      timeAvailability :{
         type:Number,
         required:true
       },
@@ -50,7 +50,7 @@ const scheduleSchema = new mongoose.Schema<IScheduleDoc, IScheduleModel>(
         type:String,
         enum:[KnowledgeLevelType.Begginer,KnowledgeLevelType.Expert,KnowledgeLevelType.Intermediate]
       },
-      learningtyle:{
+      learningStyle:{
         type:String,
         enum:[LearningStyleTypes.Auditory,LearningStyleTypes.Kinesthetic,LearningStyleTypes.Reading_Writing,LearningStyleTypes.Visual]
       },
@@ -58,7 +58,7 @@ const scheduleSchema = new mongoose.Schema<IScheduleDoc, IScheduleModel>(
         type:String,
         enum:[LearnigPaceTypes.Average,LearnigPaceTypes.Fast,LearnigPaceTypes.Slow]
       },
-      dayAvailablity:{
+      dayAvailability:{
         type:String,
         required:true
       }

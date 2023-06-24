@@ -5,13 +5,13 @@ export interface IScheduleForm{
   topic:string;
   durationType : DurationType;
   duration:number;
-  timeAvailablity :number;
+  timeAvailability :number;
   timePreference:TimePreferenceType;
   currentKnowledgeLevel:KnowledgeLevelType;
   desiredKnowledgeLevel:KnowledgeLevelType;
-  learningtyle:LearningStyleTypes;
+  learningStyle:LearningStyleTypes;
   learningPace:LearnigPaceTypes;
-  dayAvailablity:string
+  dayAvailability:string
 }
 
 // main Schedule interface here we are only adding thse properties to the model who are matching with the authStrategy

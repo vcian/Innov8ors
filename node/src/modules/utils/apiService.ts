@@ -52,7 +52,7 @@ export class apiService {
   ): Promise<string> {
     
     const configuration = new Configuration({
-        apiKey:EnvironmentConfig.getInstance().gpt_key,
+        apiKey: EnvironmentConfig.getInstance().gpt_key,
     });
 
     const openai = new OpenAIApi(configuration);

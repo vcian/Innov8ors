@@ -9,7 +9,6 @@ import { ScheduleService } from '@app/core/services/schedule.service';
 import { CpButtonComponent } from '@app/shared/cp-libs/cp-button/cp-button.component';
 import { CpTelInputComponent } from '@app/shared/cp-libs/cp-tel-input/cp-tel-input.component';
 import {
-  COUNTRY_LIST,
   DAY_LIST,
   DURATION_TYPE_LIST, DurationTypeEnum, KNOWLEDGE_LEVEL_LIST, KnowledgeLevelEnum,
   LEARNING_PACE_LIST,
@@ -42,7 +41,6 @@ export class ScheduleCreateComponent implements OnInit {
   isSubmitted = false;
   isReadOnly = false;
 
-  readonly countryList = COUNTRY_LIST;
   readonly durationTypeList = DURATION_TYPE_LIST;
   readonly timePreferenceList = TIME_PREFERENCE_LIST;
   readonly knowledgeLevelList = KNOWLEDGE_LEVEL_LIST;
@@ -105,18 +103,19 @@ export class ScheduleCreateComponent implements OnInit {
         "durationType": formValue.durationType,
         "duration": formValue.duration,
         "timeAvailability": formValue.timeAvailability,
-        "timePreference": formValue.timePreference,
+        "timePreference": formValue.timePreference[0],
         "currentKnowledgeLevel": formValue.currentKnowledgeLevel,
         "desiredKnowledgeLevel": formValue.desiredKnowledgeLevel,
-        "learningStyle": formValue.learningStyle,
+        "learningStyle": formValue.learningStyle[0],
         "learningPace": formValue.learningPace,
-        "dayAvailability": formValue.dayPreference
+        "dayAvailability": formValue.dayPreference[0] + '-' + formValue.dayPreference[1]
       }
     };
     this.scheduleService.createSchedule(payload)
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe({
         next: (response) => {
+          console
           this.isSubmitted = false;
           this.toasterService.displaySnackBarWithTranslation('toasterMessage.scheduleCreateSuccessful', MessageType.success);
           this.router.navigate(['/schedule/' + response.id], { relativeTo: this.route });

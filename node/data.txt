@@ -1,0 +1,22 @@
+
+
+Week	   Day	      Topic	Hours
+1	   Monday	  Introduction  	2
+1	   Tuesday	  TypeScript	2
+1	   Wednesday	  Components	2
+1	   Thursday    Dependency Injection	2
+2	   Monday	  Http Services	2
+2	   Tuesday	  Directives	2
+2	   Wednesday   Data-Binding	2
+2	   Thursday	  Pipes	2
+
+[
+  { "week": 1, "day" : "Monday", "topic" : "Introduction", "hours" : 2 },
+  { "week": 1, "day" : "Tuesday", "topic" : "TypeScript", "hours" : 2 },
+  { "week": 1, "day" : "Wednesday", "topic" : "Components", "hours" : 2 },
+  { "week": 1, "day" : "Thursday", "topic" : "Dependency Injection", "hours" : 2 },
+  { "week": 2, "day" : "Monday", "topic" : "Http Services", "hours" : 2 },
+  { "week": 2, "day" : "Tuesday", "topic" : "Directives", "hours" : 2 },
+  { "week": 2, "day" : "Wednesday", "topic" : "Data-Binding", "hours" : 2 },
+  { "week": 2, "day" : "Thursday", "topic" : "Pipes", "hours" : 2 }
+]

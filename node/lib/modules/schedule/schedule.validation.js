@@ -8,13 +8,13 @@ const scheduleBody = {
         topic: Joi.string().required(),
         durationType: Joi.string().required().valid(enum_1.DurationType.Days, enum_1.DurationType.Months, enum_1.DurationType.Weeks),
         duration: Joi.number().required(),
-        timeAvailablity: Joi.number().required(),
+        timeAvailability: Joi.number().required(),
         timePreference: Joi.string().required().valid(enum_1.TimePreferenceType.Morning, enum_1.TimePreferenceType.Night, enum_1.TimePreferenceType.Noon),
         currentKnowledgeLevel: Joi.string().required().valid(enum_1.KnowledgeLevelType.Begginer, enum_1.KnowledgeLevelType.Expert, enum_1.KnowledgeLevelType.Intermediate),
         desiredKnowledgeLevel: Joi.string().required().valid(enum_1.KnowledgeLevelType.Begginer, enum_1.KnowledgeLevelType.Expert, enum_1.KnowledgeLevelType.Intermediate),
-        learningtyle: Joi.string().required().valid(enum_1.LearningStyleTypes.Auditory, enum_1.LearningStyleTypes.Kinesthetic, enum_1.LearningStyleTypes.Reading_Writing, enum_1.LearningStyleTypes.Visual),
+        learningStyle: Joi.string().required().valid(enum_1.LearningStyleTypes.Auditory, enum_1.LearningStyleTypes.Kinesthetic, enum_1.LearningStyleTypes.Reading_Writing, enum_1.LearningStyleTypes.Visual),
         learningPace: Joi.string().required().valid(enum_1.LearnigPaceTypes.Average, enum_1.LearnigPaceTypes.Fast, enum_1.LearnigPaceTypes.Slow),
-        dayAvailablity: Joi.string().required()
+        dayAvailability: Joi.string().required()
     }).required(),
     schedule: Joi.any().optional(),
     isCompleted: Joi.boolean()

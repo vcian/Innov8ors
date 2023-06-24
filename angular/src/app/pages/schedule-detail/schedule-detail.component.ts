@@ -2,6 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { ActivatedRoute } from '@angular/router';
+import { ScheduleService } from '@app/core/services/schedule.service';
 
 const imports = [
   CommonModule, MatExpansionModule,
@@ -17,90 +19,46 @@ const imports = [
 })
 export class ScheduleDetailComponent implements OnInit {
   currentWeek = 0;
-  schedule = [
-    {
-      week: 1,
-      schedule: [
-        {
-          day: 'Monday',
-          schedule: [
-            {
-              "Time": "10am-12pm",
-              "Task": "Learn the basics of Angular and create a basic application",
-              "checked": false
-            },
-            {
-              "Time": "3pm-5pm",
-              "Task": "Practice creating a complex application in Angular",
-              "checked": false
-            }
-          ]
-        },
-        {
-          day: 'Tuesday',
-          schedule: [
-            {
-              "Time": "10am-12pm",
-              "Task": "Review what was learned in the previous day and assess the understanding",
-              "checked": false
-            }
-          ]
-        },
-        {
-          day: 'Wednesday',
-          schedule: [
-            {
-              "Time": "6pm-9pm",
-              "Task": "Start creating a basic application in Angular and familiarizing with the framework",
-              "checked": false
-            }
-          ]
-        }
-      ],
-    },
-    {
-      week: 2,
-      schedule: [
-        {
-          day: 'Monday',
-          schedule: [
-            {
-              "Time": "10am-12pm",
-              "Task": "Learn the basics of Angular and create a basic application",
-              "checked": false
-            },
-            {
-              "Time": "3pm-5pm",
-              "Task": "Practice creating a complex application in Angular",
-              "checked": false
-            }
-          ]
-        },
-        {
-          day: 'Tuesday',
-          schedule: [
-            {
-              "Time": "10am-12pm",
-              "Task": "Review what was learned in the previous day and assess the understanding",
-              "checked": false
-            }
-          ]
-        },
-        {
-          day: 'Wednesday',
-          schedule: [
-            {
-              "Time": "6pm-9pm",
-              "Task": "Start creating a basic application in Angular and familiarizing with the framework",
-              "checked": false
-            }
-          ]
-        }
-      ],
-    }
-  ];
-  constructor() { }
+  schedule = [];
 
-  ngOnInit() { }
+  scheduleList = [];
+  constructor(private scheduleService: ScheduleService, private activatedRoute: ActivatedRoute) { }
+
+  ngOnInit() {
+    const scheduleId = this.activatedRoute.snapshot.params.id;
+    this.getScheduleDetails(scheduleId);
+    // this.arrangeSchedule();
+  }
+  getScheduleDetails(scheduleId: string): void {
+    this.scheduleService.getScheduleDetails(scheduleId)
+      .subscribe((res) => {
+        this.schedule = res.schedule;
+        this.arrangeSchedule();
+      });
+  }
+
+  arrangeSchedule(): void {
+    this.scheduleList = []
+    const totalWeek = this.schedule[this.schedule.length - 1].week;
+    for (let i = 1; i <= totalWeek; i++) {
+      const currentWeek = this.schedule.filter(s => s.week === i);
+      const params = {
+        week: currentWeek[0].week,
+        schedule: currentWeek.map(s => {
+          return {
+            "day": s.day,
+            "topic": s.topic,
+            "hours": s.hours,
+            "isCompleted": false
+          }
+        })
+      }
+      this.scheduleList.push(params);
+    }
+  }
+
+  onDaySchedule(week: any): void {
+    console.log(week);
+  }
 
 }
