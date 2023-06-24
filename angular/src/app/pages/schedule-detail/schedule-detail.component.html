@@ -1,0 +1,35 @@
+<div class="bg-white shadow-2sm p-4 lg:p-6 xl:p-8 2xl:p-10 rounded-[10px] w-[100%] schedule-details">
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let week of schedule; let i = index" [expanded]="currentWeek === i"
+      (opened)="currentWeek = i">
+      <mat-expansion-panel-header>
+        <mat-panel-title class="text-2xl font-extrabold text-green-700">
+          Week {{week.week}}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-expansion-panel *ngFor="let weekly of week.schedule">
+        <mat-expansion-panel-header>
+          <mat-panel-title class="text-xl font-semibold">
+            Day {{weekly.day}}
+          </mat-panel-title>
+
+        </mat-expansion-panel-header>
+        <mat-expansion-panel class="internal-expansion" *ngFor="let schedule of weekly.schedule">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="w-[80%] text-l font-bold">
+              {{schedule.Time}}
+            </mat-panel-title>
+            <mat-panel-description>
+              <div>
+                Mark as completed
+                <mat-checkbox [(ngModel)]="schedule.checked" (click)="$event.stopPropagation()"></mat-checkbox>
+              </div>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          {{schedule.Task}}
+        </mat-expansion-panel>
+      </mat-expansion-panel>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+</div>

@@ -43,7 +43,8 @@ export const scheduleRoutes: Routes = [
           },
           {
             path: 'add',
-            loadComponent: () => import('@app/pages/schedule-create/schedule-create.component').then((m) => m.ScheduleCreateComponent),
+            loadComponent: () => import('@app/pages/schedule-create/schedule-create.component')
+              .then((m) => m.ScheduleCreateComponent),
             data: {
               breadcrumb: 'add'
             },
@@ -52,16 +53,13 @@ export const scheduleRoutes: Routes = [
             }
           },
           {
-            path: ':uuid',
-            loadComponent: () => import('@app/pages/schedule-create/schedule-create.component').then((m) => m.ScheduleCreateComponent),
-            data: {
-              breadcrumb: 'edit'
-            },
-            resolve: {
-              breadcrumbs: BreadcrumbResolverFn,
-              partnerDetail: PartnerDetailService
-            }
-          }
+            path: ':id',
+            loadComponent: () => import('@app/pages/schedule-detail/schedule-detail.component')
+              .then((m) => m.ScheduleDetailComponent),
+            // resolve: {
+            //   breadcrumbs: BreadcrumbResolverFn,
+            // }
+          },
         ]
       }
     ]
