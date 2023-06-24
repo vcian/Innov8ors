@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.QrCollections = exports.UserCollections = exports.CouponCodeCollections = exports.ProductReviewCollections = exports.ProductCollections = exports.QuotationCollections = exports.RefCodeCollections = exports.OrderCollections = exports.LocationCollections = exports.ProductCategoryCollections = exports.UserDetailsCollections = exports.UserType = exports.Collections = exports.AuthStrategy = exports.AuthTypes = exports.StatusType = void 0;
+exports.quotes = exports.QrCollections = exports.UserCollections = exports.CouponCodeCollections = exports.ProductReviewCollections = exports.ProductCollections = exports.QuotationCollections = exports.RefCodeCollections = exports.OrderCollections = exports.LocationCollections = exports.ProductCategoryCollections = exports.UserDetailsCollections = exports.UserType = exports.Collections = exports.AuthStrategy = exports.LearningStyleTypes = exports.LearnigPaceTypes = exports.TimePreferenceType = exports.DurationType = exports.KnowledgeLevelType = exports.AuthTypes = exports.StatusType = void 0;
 var StatusType;
 (function (StatusType) {
     StatusType["Pending"] = "pending";
@@ -12,6 +12,37 @@ var AuthTypes;
     AuthTypes["Email"] = "email";
     AuthTypes["Mobile"] = "mobile";
 })(AuthTypes = exports.AuthTypes || (exports.AuthTypes = {}));
+var KnowledgeLevelType;
+(function (KnowledgeLevelType) {
+    KnowledgeLevelType["Begginer"] = "begginer";
+    KnowledgeLevelType["Intermediate"] = "intermediate";
+    KnowledgeLevelType["Expert"] = "expert";
+})(KnowledgeLevelType = exports.KnowledgeLevelType || (exports.KnowledgeLevelType = {}));
+var DurationType;
+(function (DurationType) {
+    DurationType["Months"] = "months";
+    DurationType["Days"] = "days";
+    DurationType["Weeks"] = "weeks";
+})(DurationType = exports.DurationType || (exports.DurationType = {}));
+var TimePreferenceType;
+(function (TimePreferenceType) {
+    TimePreferenceType["Morning"] = "morning";
+    TimePreferenceType["Noon"] = "noon";
+    TimePreferenceType["Night"] = "night";
+})(TimePreferenceType = exports.TimePreferenceType || (exports.TimePreferenceType = {}));
+var LearnigPaceTypes;
+(function (LearnigPaceTypes) {
+    LearnigPaceTypes["Slow"] = "slow";
+    LearnigPaceTypes["Average"] = "average";
+    LearnigPaceTypes["Fast"] = "fast";
+})(LearnigPaceTypes = exports.LearnigPaceTypes || (exports.LearnigPaceTypes = {}));
+var LearningStyleTypes;
+(function (LearningStyleTypes) {
+    LearningStyleTypes["Visual"] = "visual";
+    LearningStyleTypes["Auditory"] = "auditory";
+    LearningStyleTypes["Reading_Writing"] = "reading_writing";
+    LearningStyleTypes["Kinesthetic"] = "kinesthetic";
+})(LearningStyleTypes = exports.LearningStyleTypes || (exports.LearningStyleTypes = {}));
 var AuthStrategy;
 (function (AuthStrategy) {
     AuthStrategy["PassBased"] = "passBased";
@@ -33,6 +64,7 @@ var Collections;
     Collections["ProductReviewCollections"] = "ProductReviewCollections";
     Collections["TokenCollections"] = "TokenCollections";
     Collections["FormCollections"] = "FormCollections";
+    Collections["RecommendationCollections"] = "recommendationCollections";
 })(Collections = exports.Collections || (exports.Collections = {}));
 var UserType;
 (function (UserType) {
@@ -144,4 +176,24 @@ var QrCollections;
     QrCollections["User"] = "User";
     QrCollections["Admin"] = "Admin";
 })(QrCollections = exports.QrCollections || (exports.QrCollections = {}));
+exports.quotes = {
+    "morning": [
+        "Write it on your heart that every day is the best day in the year. - Ralph Waldo Emerson",
+        "I get up every morning and it's going to be a great day. You never know when it's going to be over, so I refuse to have a bad day. - Paul Henderson",
+        "Today's goals: Coffee and kindness. Maybe two coffees, and then kindness. - Nanea Hoffman",
+        "An early-morning walk is a blessing for the whole day. - Henry David Thoreau",
+        "I wake up every morning at nine and grab for the morning paper. Then I look at the obituary page. If my name is not on it, I get up. - Benjamin Franklin",
+        "Every morning, I wake up saying, 'I'm still alive, a miracle.' And so I keep on pushing. — Jim Carrey",
+        "If you're changing the world, you're working on important things. You're excited to get up in the morning. - Larry Page",
+        "When you arise in the morning, think of what a precious privilege it is to be alive, to breathe, to think, to enjoy, to love. - Marcus Aurelius",
+        "I like freedom. I wake up in the morning and say, 'I don't know, should I have a popsicle or a donut?' You know, who knows? - Oscar Nunez",
+        "Smile in the mirror. Do that every morning and you'll start to see a big difference in your life. - Yoko Ono",
+        "Some people dream of success, while other people get up every morning and make it happen. - Wayne Huizenga",
+        "Morning comes whether you set the alarm or not. - Ursula K. Le Guin",
+        "I used to love night best but the older I get the more treasures and hope and joy I find in mornings. - Terri Guillemets",
+        "Morning is an important time of day, because how you spend your morning can often tell you what kind of day you are going to have. - Lemony Snicket"
+    ],
+    "noon": []
+};
+// export const prompt = "create schedule for my learning by following bellow details\n 1) course name : meditation 2) schedule time: \n wednesday-sunday : 3 hours \n 3) schedule range : 1 month \n schedule formate in json : columns : [week number,day names,time,topic] \n (Note) : json object should parsable and should contain only those details which has been asked" 
 //# sourceMappingURL=enum.js.map

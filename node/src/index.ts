@@ -1,5 +1,6 @@
 // const app=require("./Testing")
-
+const data = {"name":"pratik"}
+console.log(typeof data["name"])
 import { WebAppConfig } from "./config/WebAppConfig";
 
 // app.listen(3000, () => {

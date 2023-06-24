@@ -85,8 +85,6 @@ const LoginOrRegister = (AuthObj) => __awaiter(void 0, void 0, void 0, function*
             user = yield user_1.userService.registerUser(AuthObj);
         }
         console.log("=============");
-        console.log(user);
-        delete user.password;
         return user;
     }
     catch (error) {

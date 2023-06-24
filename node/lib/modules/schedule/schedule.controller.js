@@ -9,13 +9,19 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createSchedule = void 0;
+exports.getScheduleById = exports.createSchedule = void 0;
 const httpStatus = require("http-status");
 const scheduleService = require("./schedule.service");
 const utils_1 = require("../utils");
 exports.createSchedule = (0, utils_1.catchAsync)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    req.body.user = req.user._id;
     const schedule = yield scheduleService.createSchedule(req.body);
     console.log("echeduledata : ", schedule);
     res.status(httpStatus.CREATED).send(schedule);
+}));
+exports.getScheduleById = (0, utils_1.catchAsync)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const schedule = yield scheduleService.getScheduleById(req.params['scheduleId']);
+    console.log("echeduledata : ", schedule);
+    res.status(httpStatus.OK).send(schedule);
 }));
 //# sourceMappingURL=schedule.controller.js.map

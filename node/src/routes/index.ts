@@ -1,6 +1,7 @@
 import express, { Router } from 'express';
 import { EnvironmentConfig } from '../config/EnvironmentConfig';
 import authRoute from './auth.route';
+import userRoute from './user.route';
 import AdminRouter from './admin.route';
 const router = Router();
 
@@ -13,7 +14,11 @@ const defaultRoutes: RouterInterface[] = [
     {
         path: '/auth',
         route: authRoute,
-    }
+    },
+    {
+      path: '/users',
+      route: userRoute,
+  }
 ];
 
 // const devRoutes: RouteeInterface[] = [

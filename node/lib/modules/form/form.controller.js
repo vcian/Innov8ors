@@ -9,13 +9,19 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createForm = void 0;
+exports.getFormById = exports.createForm = void 0;
 const httpStatus = require("http-status");
 const formService = require("./form.service");
 const utils_1 = require("../utils");
 exports.createForm = (0, utils_1.catchAsync)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    req.body.user = req.user._id;
     const form = yield formService.createForm(req.body);
     console.log("echeduledata : ", form);
     res.status(httpStatus.CREATED).send(form);
+}));
+exports.getFormById = (0, utils_1.catchAsync)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const form = yield formService.getFormById(req.params['formId']);
+    console.log("echeduledata : ", form);
+    res.status(httpStatus.OK).send(form);
 }));
 //# sourceMappingURL=form.controller.js.map

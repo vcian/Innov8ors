@@ -7,6 +7,32 @@ export declare enum AuthTypes {
     Email = "email",
     Mobile = "mobile"
 }
+export declare enum KnowledgeLevelType {
+    Begginer = "begginer",
+    Intermediate = "intermediate",
+    Expert = "expert"
+}
+export declare enum DurationType {
+    Months = "months",
+    Days = "days",
+    Weeks = "weeks"
+}
+export declare enum TimePreferenceType {
+    Morning = "morning",
+    Noon = "noon",
+    Night = "night"
+}
+export declare enum LearnigPaceTypes {
+    Slow = "slow",
+    Average = "average",
+    Fast = "fast"
+}
+export declare enum LearningStyleTypes {
+    Visual = "visual",
+    Auditory = "auditory",
+    Reading_Writing = "reading_writing",
+    Kinesthetic = "kinesthetic"
+}
 export declare enum AuthStrategy {
     PassBased = "passBased",
     OtpBased = "otpBased"
@@ -25,7 +51,8 @@ export declare enum Collections {
     ProductCategoryCollections = "productcategorycollections",
     ProductReviewCollections = "ProductReviewCollections",
     TokenCollections = "TokenCollections",
-    FormCollections = "FormCollections"
+    FormCollections = "FormCollections",
+    RecommendationCollections = "recommendationCollections"
 }
 export declare enum UserType {
     User = "User",
@@ -124,3 +151,7 @@ export declare enum QrCollections {
     User = "User",
     Admin = "Admin"
 }
+export declare const quotes: {
+    morning: string[];
+    noon: any[];
+};
