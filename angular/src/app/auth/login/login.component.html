@@ -10,7 +10,7 @@
             translate }}</label>
           <input class="form-field"
             [ngClass]="{ 'field-error': (loginForm.submitted || email.touched) && email.invalid }" email type="email"
-            name="email" [(ngModel)]="loginParam.email" #email="ngModel" required>
+            name="email" [(ngModel)]="loginParam.authValue" #email="ngModel" required>
         </div>
         <ng-container *ngIf="(loginForm.submitted || email.touched) && email.errors?.required">
           <p class="error-message"> {{ 'validation.emailRequired' | translate }} </p>

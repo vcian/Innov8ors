@@ -17,6 +17,10 @@ export class AuthenticationService {
     return this.httpClientService.post(API_ROUTES.loginApi, params);
   }
 
+  verifyOtp(params): Observable<any> {
+    return this.httpClientService.post(API_ROUTES.verifyOtp, params);
+  }
+
   forgotPassword(params: Partial<LoginParams>): Observable<[] | null> {
     return this.httpClientService.post(API_ROUTES.forgotPasswordApi, params);
   }

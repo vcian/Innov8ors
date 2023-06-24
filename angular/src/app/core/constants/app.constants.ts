@@ -13,6 +13,7 @@ export const REGEX_CONSTANTS = {
 
 export const API_ROUTES = {
   loginApi: 'auth/requestOtp',
+  verifyOtp: 'auth/authenticate',
   forgotPasswordApi: 'auth/forgotPassword',
   setPasswordApi: 'auth/setPassword',
   partnerListApi: 'partner',
