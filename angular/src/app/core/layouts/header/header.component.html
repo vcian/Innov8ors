@@ -1,0 +1,16 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <img class="mt-5 logo" src="../../../assets/images/ms-logo.png">
+        <span class="flex-auto"></span>
+        <button class="mt-5" mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <button (click)="onPrompt()" class="mt-5" mat-icon-button>
+            <mat-icon>add</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="onLearning()">Learning</button>
+            <button mat-menu-item (click)="onLogout()">Logout</button>
+        </mat-menu>
+    </mat-toolbar-row>
+</mat-toolbar>
