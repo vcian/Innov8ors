@@ -151,4 +151,6 @@ export const LEARNING_PACE_LIST = [
   { value: LearningPaceEnum.fast, label: 'Fast Learner' }
 ];
 
-export const WEEKDAYS = ['Mon','Tus','Wed','Thus','Fri','Sat','Sun']
+export const WEEKDAYS = ['Mon','Tus','Wed'];
+
+export const DAY_LIST = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];

@@ -19,88 +19,125 @@ export class ScheduleDetailComponent implements OnInit {
   currentWeek = 0;
   schedule = [
     {
-      week: 1,
-      schedule: [
-        {
-          day: 'Monday',
-          schedule: [
-            {
-              "Time": "10am-12pm",
-              "Task": "Learn the basics of Angular and create a basic application",
-              "checked": false
-            },
-            {
-              "Time": "3pm-5pm",
-              "Task": "Practice creating a complex application in Angular",
-              "checked": false
-            }
-          ]
-        },
-        {
-          day: 'Tuesday',
-          schedule: [
-            {
-              "Time": "10am-12pm",
-              "Task": "Review what was learned in the previous day and assess the understanding",
-              "checked": false
-            }
-          ]
-        },
-        {
-          day: 'Wednesday',
-          schedule: [
-            {
-              "Time": "6pm-9pm",
-              "Task": "Start creating a basic application in Angular and familiarizing with the framework",
-              "checked": false
-            }
-          ]
-        }
-      ],
+      "week": 1,
+      "day": "Wednesday",
+      "topic": "Introduction to Angular",
+      "hours": 3
     },
     {
-      week: 2,
-      schedule: [
-        {
-          day: 'Monday',
-          schedule: [
-            {
-              "Time": "10am-12pm",
-              "Task": "Learn the basics of Angular and create a basic application",
-              "checked": false
-            },
-            {
-              "Time": "3pm-5pm",
-              "Task": "Practice creating a complex application in Angular",
-              "checked": false
-            }
-          ]
-        },
-        {
-          day: 'Tuesday',
-          schedule: [
-            {
-              "Time": "10am-12pm",
-              "Task": "Review what was learned in the previous day and assess the understanding",
-              "checked": false
-            }
-          ]
-        },
-        {
-          day: 'Wednesday',
-          schedule: [
-            {
-              "Time": "6pm-9pm",
-              "Task": "Start creating a basic application in Angular and familiarizing with the framework",
-              "checked": false
-            }
-          ]
-        }
-      ],
+      "week": 1,
+      "day": "Thursday",
+      "topic": "Components in Angular",
+      "hours": 3
+    },
+    {
+      "week": 1,
+      "day": "Friday",
+      "topic": "Introduction to Controllers",
+      "hours": 3
+    },
+    {
+      "week": 1,
+      "day": "Saturday",
+      "topic": "Routing in Angular",
+      "hours": 3
+    },
+    {
+      "week": 1,
+      "day": "Sunday",
+      "topic": "Angular CLI",
+      "hours": 3
+    },
+    {
+      "week": 2,
+      "day": "Wednesday",
+      "topic": "Advanced Components",
+      "hours": 3
+    },
+    {
+      "week": 2,
+      "day": "Thursday",
+      "topic": "Advanced Controllers",
+      "hours": 3
+    },
+    {
+      "week": 2,
+      "day": "Friday",
+      "topic": "Filters",
+      "hours": 3
+    },
+    {
+      "week": 2,
+      "day": "Saturday",
+      "topic": "Directives",
+      "hours": 3
+    },
+    {
+      "week": 2,
+      "day": "Sunday",
+      "topic": "Testing and Debugging",
+      "hours": 3
+    },
+    {
+      "week": 3,
+      "day": "Wednesday",
+      "topic": "Animations",
+      "hours": 3
+    },
+    {
+      "week": 3,
+      "day": "Thursday",
+      "topic": "Actions and Event Handlers",
+      "hours": 3
+    },
+    {
+      "week": 3,
+      "day": "Friday",
+      "topic": "Build System",
+      "hours": 3
+    },
+    {
+      "week": 3,
+      "day": "Saturday",
+      "topic": "Service and Resources",
+      "hours": 3
+    },
+    {
+      "week": 3,
+      "day": "Sunday",
+      "topic": "Deployment",
+      "hours": 3
     }
   ];
+  scheduleList = [];
   constructor() { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.arrangeSchedule();
+  }
+
+  arrangeSchedule(): void {
+    this.scheduleList = []
+    const totalWeek = this.schedule[this.schedule.length - 1].week;
+    for (let i = 1; i <= totalWeek; i++) {
+      const currentWeek = this.schedule.filter(s => s.week === i);
+      const params = {
+        week: currentWeek[0].week,
+        schedule: currentWeek.map(s => {
+          return {
+            "day": s.day,
+            "topic": s.topic,
+            "hours": s.hours,
+            "isCompleted": false
+          }
+        })
+      }
+      this.scheduleList.push(params);
+    }
+  }
+
+  onDaySchedule(week: any): void {
+    console.log(week);
+  }
 
 }
