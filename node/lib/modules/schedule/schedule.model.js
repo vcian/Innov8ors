@@ -25,7 +25,7 @@ const scheduleSchema = new mongoose_1.default.Schema({
             type: Number,
             required: true
         },
-        timeAvailablity: {
+        timeAvailability: {
             type: Number,
             required: true
         },
@@ -41,7 +41,7 @@ const scheduleSchema = new mongoose_1.default.Schema({
             type: String,
             enum: [enum_1.KnowledgeLevelType.Begginer, enum_1.KnowledgeLevelType.Expert, enum_1.KnowledgeLevelType.Intermediate]
         },
-        learningtyle: {
+        learningStyle: {
             type: String,
             enum: [enum_1.LearningStyleTypes.Auditory, enum_1.LearningStyleTypes.Kinesthetic, enum_1.LearningStyleTypes.Reading_Writing, enum_1.LearningStyleTypes.Visual]
         },
@@ -49,7 +49,7 @@ const scheduleSchema = new mongoose_1.default.Schema({
             type: String,
             enum: [enum_1.LearnigPaceTypes.Average, enum_1.LearnigPaceTypes.Fast, enum_1.LearnigPaceTypes.Slow]
         },
-        dayAvailablity: {
+        dayAvailability: {
             type: String,
             required: true
         }

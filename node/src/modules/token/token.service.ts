@@ -1,15 +1,14 @@
+import * as httpStatus from 'http-status';
 import * as jwt from 'jsonwebtoken';
 import * as moment from 'moment';
 import { Moment } from 'moment';
 import mongoose from 'mongoose';
-import * as httpStatus from 'http-status';
-import Token from './token.model';
-import ApiError from '../errors/ApiError';
-import tokenTypes from './token.types';
-import { AccessAndRefreshTokens, ITokenDoc } from './token.interfaces';
-import { IUserDoc } from '../user/user.interfaces';
-import { userService } from '../user';
 import { EnvironmentConfig } from '../../config/EnvironmentConfig';
+import ApiError from '../errors/ApiError';
+import { IUserDoc } from '../user/user.interfaces';
+import { AccessAndRefreshTokens, ITokenDoc } from './token.interfaces';
+import Token from './token.model';
+import tokenTypes from './token.types';
 
 export const generateToken = (
   userId: mongoose.Types.ObjectId,
@@ -64,7 +63,7 @@ export const verifyToken = async (token: string, type: string): Promise<ITokenDo
 
 
 export const generateAuthTokens = async (user: IUserDoc): Promise<AccessAndRefreshTokens> => {
-  const accessTokenExpires = moment().add(20, 'minutes');
+  const accessTokenExpires = moment().add(50, 'minutes');
   const accessToken = generateToken(user.id, accessTokenExpires, tokenTypes.ACCESS);
 
   const refreshTokenExpires = moment().add(1, 'days');

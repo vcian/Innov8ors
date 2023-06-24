@@ -10,7 +10,7 @@ export enum AuthTypes{
 }
 
 export enum KnowledgeLevelType{
-    Begginer="begginer",
+    Begginer="beginner",
     Intermediate="intermediate",
     Expert="expert"
 }

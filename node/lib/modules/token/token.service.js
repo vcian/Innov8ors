@@ -10,13 +10,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.generateVerifyEmailToken = exports.generateAuthTokens = exports.verifyToken = exports.saveToken = exports.generateToken = void 0;
+const httpStatus = require("http-status");
 const jwt = require("jsonwebtoken");
 const moment = require("moment");
-const httpStatus = require("http-status");
-const token_model_1 = require("./token.model");
-const ApiError_1 = require("../errors/ApiError");
-const token_types_1 = require("./token.types");
 const EnvironmentConfig_1 = require("../../config/EnvironmentConfig");
+const ApiError_1 = require("../errors/ApiError");
+const token_model_1 = require("./token.model");
+const token_types_1 = require("./token.types");
 const generateToken = (userId, expires, type, secret = EnvironmentConfig_1.EnvironmentConfig.getInstance().JWT_Token_Secret) => {
     const payload = {
         sub: userId,
@@ -56,7 +56,7 @@ const verifyToken = (token, type) => __awaiter(void 0, void 0, void 0, function*
 });
 exports.verifyToken = verifyToken;
 const generateAuthTokens = (user) => __awaiter(void 0, void 0, void 0, function* () {
-    const accessTokenExpires = moment().add(20, 'minutes');
+    const accessTokenExpires = moment().add(50, 'minutes');
     const accessToken = (0, exports.generateToken)(user.id, accessTokenExpires, token_types_1.default.ACCESS);
     const refreshTokenExpires = moment().add(1, 'days');
     const refreshToken = (0, exports.generateToken)(user.id, refreshTokenExpires, token_types_1.default.REFRESH);

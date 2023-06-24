@@ -6,6 +6,8 @@ const allRoles = {
     [enum_1.UserType.User]: [
         'createSchedule',
         'getSchedule',
+        'updateScheduleTopic',
+        'updateSchedule',
         // UserDetails Role
         'addUserDetail',
         'updateUserDetail',

@@ -20,4 +20,8 @@ export class ScheduleService {
     return this.httpClientService.post(API_ROUTES.scheduleApi, params);
   }
 
+  getScheduleDetails(id: string): Observable<any> {
+    return this.httpClientService.get(API_ROUTES.getScheduleApi + id);
+  }
+
 }

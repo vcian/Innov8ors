@@ -1,3 +1,4 @@
+import { EnvironmentConfig } from "../../config/EnvironmentConfig";
 import { HttpUtil } from "./HttpUtil";
 const { Configuration, OpenAIApi } = require("openai");
 
@@ -51,10 +52,11 @@ export class apiService {
   ): Promise<string> {
     
     const configuration = new Configuration({
-        apiKey: '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',
+        apiKey: EnvironmentConfig.getInstance().gpt_key,
     });
 
     const openai = new OpenAIApi(configuration);
+
     const response = await openai.createCompletion({
         model: "text-davinci-003",
         prompt: prompt,

@@ -4,13 +4,13 @@ export interface IScheduleForm {
     topic: string;
     durationType: DurationType;
     duration: number;
-    timeAvailablity: number;
+    timeAvailability: number;
     timePreference: TimePreferenceType;
     currentKnowledgeLevel: KnowledgeLevelType;
     desiredKnowledgeLevel: KnowledgeLevelType;
-    learningtyle: LearningStyleTypes;
+    learningStyle: LearningStyleTypes;
     learningPace: LearnigPaceTypes;
-    dayAvailablity: string;
+    dayAvailability: string;
 }
 export interface ISchedule {
     user: mongoose.Schema.Types.ObjectId;

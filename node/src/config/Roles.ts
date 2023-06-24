@@ -5,6 +5,8 @@ const allRoles = {
 
       'createSchedule',
       'getSchedule',
+      'updateScheduleTopic',
+      'updateSchedule',
 
       // UserDetails Role
       'addUserDetail',

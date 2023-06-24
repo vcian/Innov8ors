@@ -30,7 +30,8 @@ export const API_ROUTES = {
   dashboardTopPartnersApi: 'dashboard/topPartners',
   exchangeRateApi: 'exchangerates',
   openInvoiceListApi: 'dashboard/openBillList',
-  scheduleApi: 'users/schedule'
+  scheduleApi: 'users/schedule/create',
+  getScheduleApi: 'users/schedule/get/'
 };
 
 export enum MessageType {
@@ -128,7 +129,6 @@ export const DURATION_TYPE_LIST = [
 export const TIME_PREFERENCE_LIST = [
   { value: 'morning', label: 'Morning' },
   { value: 'noon', label: 'Noon' },
-  { value: 'evening', label: 'Evening' },
   { value: 'night', label: 'Night' }
 ];
 
@@ -151,6 +151,5 @@ export const LEARNING_PACE_LIST = [
   { value: LearningPaceEnum.fast, label: 'Fast Learner' }
 ];
 
-export const WEEKDAYS = ['Mon','Tus','Wed'];
 
 export const DAY_LIST = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];

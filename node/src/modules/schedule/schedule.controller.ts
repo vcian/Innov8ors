@@ -19,3 +19,26 @@ export const getScheduleById = catchAsync(async (req: Request, res: Response) =>
   console.log("echeduledata : ",schedule)
   res.status(httpStatus.OK).send(schedule);
 });
+
+
+export const markReadTopic = catchAsync(async (req: Request, res: Response) => {
+  const schedule = await scheduleService.getScheduleById(req.body['scheduleId']);
+  for(let i=0;i<schedule.schedule.length;i++){
+    if(req.body['topicId'] == schedule.schedule[i]["id"]){
+      schedule.schedule[i]["isCompleted"] = true
+      break
+    }
+  }
+  await schedule.save()
+  console.log("echeduledata : ",schedule)
+  res.status(httpStatus.OK).send(schedule);
+});
+
+export const markReadSchedule = catchAsync(async (req: Request, res: Response) => {
+  const schedule = await scheduleService.getScheduleById(req.body['scheduleId']);
+  
+  schedule.schedule.isCompleted = true
+  await schedule.save()
+  console.log("echeduledata : ",schedule)
+  res.status(httpStatus.OK).send(schedule);
+});

@@ -8,12 +8,21 @@ import { scheduleController, scheduleValidation } from '../modules/schedule';
 const router: Router = Router();
 
 router
-.route('/schedule')
+.route('/schedule/create')
 .post(auth("createSchedule"), validate(scheduleValidation.createSchedule), scheduleController.createSchedule);
 
 router
-.route('/schedule/:scheduleId')
+.route('/schedule/get/:scheduleId')
 .get(auth("getSchedule"),validate(scheduleValidation.getSchedule),scheduleController.getScheduleById)
+
+router
+.route('/schedule/topic/update')
+.post(auth("updateScheduleTopic"),scheduleController.markReadTopic)
+
+router
+.route('/schedule/topic/update')
+.post(auth("updateSchedule"),scheduleController.markReadSchedule)
+
 
 
 
