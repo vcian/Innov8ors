@@ -13,3 +13,7 @@ export const createForm = async (formBody: IForm): Promise<IFormDoc> => {
   return Form.create(formBody);
 };
 
+export const getFormById = async (id:mongoose.Schema.Types.ObjectId): Promise<IFormDoc> => {
+  return Form.findById(id);
+};
+

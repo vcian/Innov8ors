@@ -9,10 +9,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createForm = void 0;
+exports.getFormById = exports.createForm = void 0;
 const form_model_1 = require("./form.model");
 const createForm = (formBody) => __awaiter(void 0, void 0, void 0, function* () {
     return form_model_1.default.create(formBody);
 });
 exports.createForm = createForm;
+const getFormById = (id) => __awaiter(void 0, void 0, void 0, function* () {
+    return form_model_1.default.findById(id);
+});
+exports.getFormById = getFormById;
 //# sourceMappingURL=form.service.js.map

@@ -3,6 +3,9 @@ import {UserType} from "../modules/utils/enum"
 const allRoles = {
     [UserType.User]: [
 
+      'createSchedule',
+      'getSchedule',
+
       // UserDetails Role
       'addUserDetail',
       'updateUserDetail',

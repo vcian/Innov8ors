@@ -4,6 +4,8 @@ exports.roleRights = exports.roles = void 0;
 const enum_1 = require("../modules/utils/enum");
 const allRoles = {
     [enum_1.UserType.User]: [
+        'createSchedule',
+        'getSchedule',
         // UserDetails Role
         'addUserDetail',
         'updateUserDetail',

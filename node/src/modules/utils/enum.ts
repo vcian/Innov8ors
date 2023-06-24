@@ -9,6 +9,39 @@ export enum AuthTypes{
     Mobile="mobile"
 }
 
+export enum KnowledgeLevelType{
+    Begginer="begginer",
+    Intermediate="intermediate",
+    Expert="expert"
+}
+
+export enum DurationType{
+    Months="months",
+    Days = "days",
+    Weeks="weeks"
+}
+
+export enum TimePreferenceType{
+    Morning = "morning",
+    Noon = "noon",
+    Night = "night"
+}
+
+
+export enum LearnigPaceTypes{
+    Slow = "slow",
+    Average = "average",
+    Fast = "fast"
+}
+
+
+export enum LearningStyleTypes{
+    Visual = "visual",
+    Auditory = "auditory",
+    Reading_Writing = "reading_writing",
+    Kinesthetic = "kinesthetic"
+}
+
 export enum AuthStrategy{
     PassBased="passBased",
     OtpBased="otpBased"
@@ -28,7 +61,8 @@ export enum Collections{
     ProductCategoryCollections = "productcategorycollections",
     ProductReviewCollections="ProductReviewCollections",
     TokenCollections = "TokenCollections",
-    FormCollections="FormCollections"
+    FormCollections="FormCollections",
+    RecommendationCollections = "recommendationCollections"
 }
 
 
@@ -140,3 +174,26 @@ export enum QrCollections{
     Admin="Admin"
 } 
 
+export const quotes = {
+    "morning":[
+        "Write it on your heart that every day is the best day in the year. - Ralph Waldo Emerson",
+        "I get up every morning and it's going to be a great day. You never know when it's going to be over, so I refuse to have a bad day. - Paul Henderson",
+        "Today's goals: Coffee and kindness. Maybe two coffees, and then kindness. - Nanea Hoffman",
+        "An early-morning walk is a blessing for the whole day. - Henry David Thoreau",
+        "I wake up every morning at nine and grab for the morning paper. Then I look at the obituary page. If my name is not on it, I get up. - Benjamin Franklin",
+        "Every morning, I wake up saying, 'I'm still alive, a miracle.' And so I keep on pushing. — Jim Carrey",
+        "If you're changing the world, you're working on important things. You're excited to get up in the morning. - Larry Page",
+        "When you arise in the morning, think of what a precious privilege it is to be alive, to breathe, to think, to enjoy, to love. - Marcus Aurelius",
+        "I like freedom. I wake up in the morning and say, 'I don't know, should I have a popsicle or a donut?' You know, who knows? - Oscar Nunez",
+        "Smile in the mirror. Do that every morning and you'll start to see a big difference in your life. - Yoko Ono",
+        "Some people dream of success, while other people get up every morning and make it happen. - Wayne Huizenga",
+        "Morning comes whether you set the alarm or not. - Ursula K. Le Guin",
+        "I used to love night best but the older I get the more treasures and hope and joy I find in mornings. - Terri Guillemets",
+        "Morning is an important time of day, because how you spend your morning can often tell you what kind of day you are going to have. - Lemony Snicket"
+    ],
+    "noon":[
+
+    ]
+}
+
+// export const prompt = "create schedule for my learning by following bellow details\n 1) course name : meditation 2) schedule time: \n wednesday-sunday : 3 hours \n 3) schedule range : 1 month \n schedule formate in json : columns : [week number,day names,time,topic] \n (Note) : json object should parsable and should contain only those details which has been asked" 

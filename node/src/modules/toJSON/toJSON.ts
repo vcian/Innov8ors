@@ -41,6 +41,8 @@ const toJSON = (schema: any) => {
       delete ret.createdAt;
       // eslint-disable-next-line no-param-reassign
       delete ret.updatedAt;
+      
+      delete ret.password
       if (transform) {
         return transform(doc, ret, options);
       }
