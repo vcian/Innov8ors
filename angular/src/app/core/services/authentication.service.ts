@@ -28,4 +28,8 @@ export class AuthenticationService {
   setPassword(params: Partial<LoginParams>): Observable<[] | null> {
     return this.httpClientService.post(API_ROUTES.setPasswordApi, params);
   }
+
+  logout() {
+    localStorage.clear();
+  }
 }

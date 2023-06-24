@@ -71,6 +71,21 @@
 
       </div>
 
+      <div class="w-[100%] p-2">
+        <div class="flex">
+          <label class="field-lbl" [ngClass]="{ 'field-error': formControls.dayPreference.touched && formControls.dayPreference.invalid }"
+            for="topic">
+            {{ 'schedule.add.dayPreference' | translate }}
+          </label>
+          <ng-select class="w-full font-semibold text-secondary custom-select"
+            [ngClass]="{ 'field-error': formControls.dayPreference.touched && formControls.dayPreference.invalid }"
+            [items]="dayPreferenceList" bindLabel="label" bindValue="value" formControlName="dayPreference" [multiple]="true"
+            [clearable]="false" [searchable]="false"></ng-select>
+        </div>
+        <ng-container *ngTemplateOutlet="requiredError; context: { control: formControls.dayPreference }"></ng-container>
+
+      </div>
+
       <h4 class="sub-txt relative text-[14px] font-semibold text-secondary mb-6 lg:mb-8 2xl:mb-10 mt-8 lg:mt-12 2xl:mt-16">
         <span class="bg-white relative z-[1] px-2 lg:px-3 -ml-2 lg:-ml-3">{{ 'partner.add.additionalDetails' | translate
           }}</span>
@@ -104,20 +119,6 @@
             [searchable]="false"></ng-select>
         </div>
         <ng-container *ngTemplateOutlet="requiredError; context: { control: formControls.desiredKnowledgeLevel }"></ng-container>
-      </div>
-
-      <div class="w-[100%] p-2">
-        <div class="flex">
-          <label class="field-lbl" [ngClass]="{ 'field-error': formControls.learningStyle.touched && formControls.learningStyle.invalid }"
-            for="topic">
-            {{ 'schedule.add.learningStyle' | translate }}
-          </label>
-          <ng-select class="w-full font-semibold text-secondary custom-select"
-            [ngClass]="{ 'field-error': formControls.learningStyle.touched && formControls.learningStyle.invalid }"
-            [items]="weekDays" bindLabel="label" bindValue="value" formControlName="learningStyle" [clearable]="false"
-            [searchable]="false" [multiple]="true"></ng-select>
-        </div>
-        <ng-container *ngTemplateOutlet="requiredError; context: { control: formControls.learningStyle }"></ng-container>
       </div>
 
       <div class="w-[100%] p-2">

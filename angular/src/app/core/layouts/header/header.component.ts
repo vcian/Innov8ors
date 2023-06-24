@@ -6,6 +6,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { Router, RouterModule } from '@angular/router';
 import { LogoutComponent } from '@app/auth/logout/logout.component';
+import { AuthenticationService } from '@app/core/services/authentication.service';
 
 @Component({
   selector: 'app-header',
@@ -23,9 +24,10 @@ import { LogoutComponent } from '@app/auth/logout/logout.component';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private authService: AuthenticationService) {}
 
   onLogout(): void {
+    this.authService.logout();
     this.router.navigate(['/auth/login']);
   }
 
